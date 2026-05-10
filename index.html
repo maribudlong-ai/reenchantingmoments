@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Re-Enchanting Moments — Mari Budlong</title>
+
+  <!-- Fonts via @fontsource / jsDelivr CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/cormorant-garamond/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/cormorant-garamond/600.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/cormorant-garamond/700.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/lato/index.css">
+
+  <style>
+    /* =============================================
+       RESET & BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: #303636;
+      color: #CAC9C6;
+      font-family: 'Lato', system-ui, sans-serif;
+      font-size: 15.5px;
+      line-height: 1.8;
+    }
+
+    p { margin-bottom: 1.2em; }
+    p:last-child { margin-bottom: 0; }
+
+    a { color: inherit; }
+
+    /* =============================================
+       LAYOUT
+    ============================================= */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    section {
+      padding: 90px 0;
+      border-top: 1px solid #404848;
+    }
+
+    section:first-of-type { border-top: none; }
+
+    .section-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: #484a4a;
+      margin: 2rem 0;
+    }
+
+    /* =============================================
+       TYPOGRAPHY
+    ============================================= */
+    .label {
+      display: block;
+      font-family: 'Lato', system-ui, sans-serif;
+      font-size: 10px;
+      color: #0D8671;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      margin-bottom: 14px;
+    }
+
+    .site-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 700;
+      font-size: 52px;
+      color: #E8E6E3;
+      letter-spacing: 0.01em;
+      line-height: 1.05;
+    }
+
+    .section-heading {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 600;
+      font-size: 34px;
+      color: #CAC9C6;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .tagline {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 21px;
+      color: #B6816C;
+      letter-spacing: 0.01em;
+      line-height: 1.45;
+    }
+
+    .body-text {
+      font-size: 15.5px;
+      line-height: 1.8;
+      color: #CAC9C6;
+      opacity: 0.85;
+    }
+
+    blockquote {
+      border-left: 2px solid #B6816C;
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 21px;
+      color: #CAC9C6;
+      opacity: 0.8;
+      line-height: 1.55;
+    }
+
+    /* =============================================
+       BUTTONS
+    ============================================= */
+    .btn-primary {
+      display: inline-block;
+      background: #B6816C;
+      color: #E8E6E3;
+      border: none;
+      padding: 15px 34px;
+      font-family: 'Lato', system-ui, sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.8; }
+
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: #CAC9C6;
+      border: 0.5px solid #CAC9C6;
+      padding: 14px 32px;
+      font-family: 'Lato', system-ui, sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .btn-secondary:hover { opacity: 0.8; }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2.5rem;
+      align-items: center;
+    }
+
+    /* =============================================
+       NAVIGATION
+    ============================================= */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: #303636;
+    }
+    nav.scrolled { border-bottom: 0.5px solid #484a4a; }
+
+    .nav-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 600;
+      font-size: 18px;
+      color: #E8E6E3;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'Lato', system-ui, sans-serif;
+      font-size: 10.5px;
+      color: #CAC9C6;
+      text-decoration: none;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #B6816C; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 6px;
+    }
+    .hamburger span {
+      width: 22px;
+      height: 1px;
+      background: #CAC9C6;
+      display: block;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      background: #303636;
+      border-top: 0.5px solid #484a4a;
+      padding: 0.5rem 0;
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a {
+      display: block;
+      font-family: 'Lato', system-ui, sans-serif;
+      font-size: 11px;
+      color: #CAC9C6;
+      text-decoration: none;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 13px 2rem;
+      border-bottom: 0.5px solid #404848;
+      transition: color 0.2s;
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: #B6816C; }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      border-top: none;
+      padding-top: 62px;
+    }
+
+    .hero-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 4rem 2rem 5rem;
+    }
+
+    .hero-inner .tagline {
+      margin-top: 1.25rem;
+      margin-bottom: 1.75rem;
+    }
+
+    /* =============================================
+       EVENT
+    ============================================= */
+    #event {
+      background: #2b3232;
+      border-top: 3px solid #B6816C;
+    }
+
+    .event-details-row {
+      display: flex;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      margin: 1.5rem 0 2rem;
+    }
+
+    .event-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .event-detail .detail-label {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #0D8671;
+    }
+    .event-detail .detail-value {
+      font-size: 14px;
+      color: #E8E6E3;
+    }
+
+    .pricing-label {
+      display: block;
+      font-family: 'Lato', system-ui, sans-serif;
+      font-size: 10px;
+      color: #0D8671;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      margin-bottom: 12px;
+      margin-top: 2.5rem;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 2rem;
+    }
+
+    .price-card {
+      background: #3a4040;
+      border: 1px solid #484a4a;
+      border-radius: 4px;
+      padding: 1.25rem 1.25rem 1.5rem;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      user-select: none;
+    }
+    .price-card:hover { border-color: #8a6050; }
+    .price-card.selected {
+      border-color: #B6816C;
+      background: #3e3830;
+    }
+
+    .price-tier-name {
+      font-family: 'Lato', system-ui, sans-serif;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #0D8671;
+      margin-bottom: 8px;
+    }
+
+    .price-amount {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 30px;
+      font-weight: 600;
+      color: #E8E6E3;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .price-desc {
+      font-size: 12px;
+      color: #CAC9C6;
+      opacity: 0.7;
+      line-height: 1.5;
+    }
+
+    .stripe-reassurance {
+      font-size: 12px;
+      color: #888;
+      font-style: italic;
+      margin-top: 10px;
+    }
+
+    /* =============================================
+       WHY
+    ============================================= */
+    .pull-quote {
+      border-left: 2px solid #B6816C;
+      padding-left: 1.5rem;
+      margin: 2.5rem 0;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 23px;
+      color: #CAC9C6;
+      opacity: 0.78;
+      line-height: 1.5;
+    }
+
+    /* =============================================
+       HOW I WORK
+    ============================================= */
+    .framework-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .framework-item {}
+
+    .fw-question {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #0D8671;
+      margin-bottom: 6px;
+    }
+
+    .fw-word {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 600;
+      font-size: 22px;
+      color: #E8E6E3;
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+
+    .fw-body {
+      font-size: 14px;
+      color: #CAC9C6;
+      opacity: 0.8;
+      line-height: 1.75;
+    }
+
+    /* =============================================
+       SERVICES
+    ============================================= */
+    .services-intro {
+      max-width: 680px;
+      margin-bottom: 2.5rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 2rem;
+    }
+
+    .service-card {
+      background: #484a4a;
+      border-top: 2px solid #B6816C;
+      border-radius: 4px;
+      padding: 1.75rem 2rem;
+    }
+
+    .service-card h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 600;
+      font-size: 21px;
+      color: #E8E6E3;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      font-size: 14px;
+      color: #CAC9C6;
+      opacity: 0.78;
+      line-height: 1.7;
+    }
+
+    .services-tagline {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 20px;
+      color: #B6816C;
+      margin-top: 1.5rem;
+    }
+
+    /* =============================================
+       PHILOSOPHY
+    ============================================= */
+    .philosophy-intro {
+      max-width: 640px;
+      margin-bottom: 3rem;
+    }
+
+    .philosophy-group {
+      margin-bottom: 3rem;
+    }
+
+    .phil-group-label {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: #484a4a;
+      margin-bottom: 1.5rem;
+    }
+
+    .philosophy-items {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .philosophy-item {
+      padding-left: 1rem;
+      border-left: 1px solid #484a4a;
+      transition: border-color 0.3s;
+    }
+    .philosophy-item:hover { border-left-color: #B6816C; }
+
+    .phil-word {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 30px;
+      color: #B6816C;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .phil-body {
+      font-size: 13.5px;
+      color: #CAC9C6;
+      opacity: 0.8;
+      line-height: 1.75;
+    }
+
+    .philosophy-separator {
+      width: 100%;
+      height: 1px;
+      background: #404848;
+      margin: 2.5rem 0;
+    }
+
+    /* =============================================
+       ABOUT
+    ============================================= */
+    .photo-placeholder {
+      width: 150px;
+      height: 150px;
+      background: #484a4a;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+      border: 1px solid #606868;
+    }
+    .photo-placeholder span {
+      font-size: 10px;
+      color: #888;
+      text-align: center;
+      line-height: 1.4;
+      padding: 0 1rem;
+    }
+
+    /* =============================================
+       TESTIMONIALS
+    ============================================= */
+    .testimonial {
+      margin-bottom: 3rem;
+      border-left: 2px solid #B6816C;
+      padding-left: 1.5rem;
+    }
+
+    .testimonial-text {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 21px;
+      color: #CAC9C6;
+      opacity: 0.82;
+      line-height: 1.55;
+      margin-bottom: 12px;
+    }
+
+    .testimonial-author {
+      font-size: 11px;
+      color: #888;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* =============================================
+       BLOG BITES
+    ============================================= */
+    .blog-list {
+      list-style: none;
+      margin: 1.75rem 0 2rem;
+    }
+
+    .blog-list li {
+      border-bottom: 0.5px solid #404848;
+    }
+
+    .blog-list a {
+      display: block;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 20px;
+      color: #CAC9C6;
+      text-decoration: none;
+      padding: 14px 0;
+      transition: color 0.2s;
+    }
+    .blog-list a:hover { color: #B6816C; }
+
+    .blog-note {
+      font-size: 12px;
+      color: #888;
+      font-style: italic;
+      margin-top: 1.25rem;
+    }
+
+    /* =============================================
+       CONTACT
+    ============================================= */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      margin-top: 2.5rem;
+    }
+
+    .contact-block-label {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: #0D8671;
+      margin-bottom: 10px;
+    }
+
+    .contact-block h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 600;
+      font-size: 22px;
+      color: #CAC9C6;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .contact-block p {
+      font-size: 14px;
+      color: #CAC9C6;
+      opacity: 0.78;
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-placeholder {
+      background: #484a4a;
+      border-radius: 4px;
+      padding: 2rem;
+      text-align: center;
+      min-height: 180px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .form-placeholder p {
+      font-size: 12px;
+      color: #888;
+      font-style: italic;
+      opacity: 1;
+      margin: 0;
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    footer {
+      border-top: 1px solid #404848;
+      padding: 2.5rem 0;
+    }
+
+    .footer-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-name {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 15px;
+      color: #888;
+    }
+
+    .footer-copy {
+      font-size: 11px;
+      color: #666;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .footer-links a {
+      font-size: 10px;
+      color: #888;
+      text-decoration: none;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: #B6816C; }
+
+    /* =============================================
+       MOBILE
+    ============================================= */
+    @media (max-width: 640px) {
+      .site-title { font-size: 34px; }
+      .section-heading { font-size: 26px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .framework-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr 1fr; }
+      .philosophy-items { grid-template-columns: 1fr; gap: 1.5rem; }
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .btn-group { flex-direction: column; align-items: flex-start; }
+      .event-details-row { gap: 1.5rem; }
+    }
+
+    @media (max-width: 420px) {
+      .pricing-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =============================================
+       NAVIGATION
+  ============================================= -->
+  <nav id="site-nav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-brand">Re-Enchanting Moments</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#how">How I Work</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#event">Event</a></li>
+        <li><a href="#blog">Blog Bites</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#about" class="mobile-link">About</a>
+      <a href="#how" class="mobile-link">How I Work</a>
+      <a href="#services" class="mobile-link">Services</a>
+      <a href="#event" class="mobile-link">Event</a>
+      <a href="#blog" class="mobile-link">Blog Bites</a>
+      <a href="#contact" class="mobile-link">Contact</a>
+    </div>
+  </nav>
+
+  <!-- =============================================
+       HERO
+  ============================================= -->
+  <section id="hero">
+    <div class="hero-inner">
+      <span class="label">Mari Budlong · Coach &amp; Momentum-Builder</span>
+      <h1 class="site-title">Re-Enchanting<br>Moments.</h1>
+      <p class="tagline">let your spark shine, follow your juice,<br>and lean into your crunch.</p>
+      <p class="body-text" style="max-width: 580px; margin-top: 1.5rem;">
+        Each moment is an <em>anything</em> — and they all lead up to the <em>everythings</em>.
+        Focusing on the micro can lead to the rest. Starting small puts things into
+        bite-sized chunks: attainable, noticeable, momentum-building.
+      </p>
+      <div class="btn-group">
+        <a href="#event" class="btn-primary">July Workshop →</a>
+        <a href="#contact" class="btn-secondary">Book a free call</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       FEATURED EVENT
+  ============================================= -->
+  <section id="event">
+    <div class="section-inner">
+      <span class="label">Upcoming Workshop · July 2025</span>
+      <h2 class="section-heading">Human Touchpointing with AI</h2>
+      <p class="tagline" style="margin-bottom: 1.5rem;">Bot + Being: a one-day workshop</p>
+
+      <p class="body-text" style="max-width: 680px;">
+        What happens when you bring a real human listener together with AI tools designed
+        to support reflection and insight? This workshop explores exactly that — how to use
+        AI as a thinking partner without losing the irreplaceable warmth of human contact.
+        We'll practice, experiment, and find out what's possible when bot meets being.
+      </p>
+
+      <div class="event-details-row">
+        <div class="event-detail">
+          <span class="detail-label">Date</span>
+          <span class="detail-value">Saturday, July 12, 2025</span>
+        </div>
+        <div class="event-detail">
+          <span class="detail-label">Time</span>
+          <span class="detail-value">8:00am – 11:00am Pacific</span>
+        </div>
+        <div class="event-detail">
+          <span class="detail-label">Format</span>
+          <span class="detail-value">Online</span>
+        </div>
+        <div class="event-detail">
+          <span class="detail-label">Location</span>
+          <span class="detail-value">[Zoom link sent on registration]</span>
+        </div>
+      </div>
+
+      <span class="pricing-label">choose your ticket</span>
+
+      <div class="pricing-grid" id="pricing-grid">
+
+        <div class="price-card" data-tier="supporter" onclick="selectTier(this)">
+          <div class="price-tier-name">Scholarship Supporter</div>
+          <div class="price-amount">$93.39</div>
+          <div class="price-desc">Your ticket covers yours and helps fund access for others.</div>
+        </div>
+
+        <div class="price-card" data-tier="regular" onclick="selectTier(this)">
+          <div class="price-tier-name">Regular</div>
+          <div class="price-amount">$46.90</div>
+          <div class="price-desc">Standard ticket price.</div>
+        </div>
+
+        <div class="price-card selected" data-tier="discounted" onclick="selectTier(this)">
+          <div class="price-tier-name">Discounted</div>
+          <div class="price-amount">$23.45</div>
+          <div class="price-desc">For those for whom the regular price is a stretch.</div>
+        </div>
+
+        <div class="price-card" data-tier="pwyc" onclick="selectTier(this)">
+          <div class="price-tier-name">Pay What You Can</div>
+          <div class="price-amount">You decide.</div>
+          <div class="price-desc">Come as you are.</div>
+        </div>
+
+      </div>
+
+      <!-- STRIPE PLACEHOLDER
+           When ready: replace this div with your Stripe Payment Link button or embed.
+           Each pricing tier should map to its own Stripe Payment Link URL.
+           See reenchanting-design-spec.md for integration notes. -->
+      <div id="stripe-container">
+        <a href="#" class="btn-primary" id="register-btn">Register Now →</a>
+      </div>
+
+      <p class="stripe-reassurance">
+        Sliding scale pricing is real. Pay what genuinely works for you.
+      </p>
+    </div>
+  </section>
+
+  <!-- =============================================
+       WHY MOMENT WITH ME
+  ============================================= -->
+  <section id="why">
+    <div class="section-inner">
+      <span class="label">why moment with me</span>
+      <h2 class="section-heading">To build momentum.</h2>
+
+      <div class="body-text" style="max-width: 700px;">
+        <p>
+          "Toward what?" you might ask? In general, enjoying your life. Specifically —
+          what are you struggling with? Where do you find yourself stuck, having difficulties,
+          making or breaking habits? Do you know (or perhaps not quite know) the thing you
+          could do to feel good, yet come upon blockages when you try to implement changes?
+        </p>
+        <p>
+          Rather than the sticks and carrots of accountability — the extrinsic reward of
+          punishments and rewards, which ultimately decrease motivation — I prefer the
+          intrinsic reward of feeling good, and I'd love to help you develop that capacity
+          in yourself.
+        </p>
+        <p>
+          Feeling good doesn't mean being happy all the time. It feels good to know you're
+          capable of meeting life's challenges, nimble with changes, agile with obstacles.
+        </p>
+        <p>
+          Let's explore shifting from perceiving obstacles to feeling excited about tackling
+          the obstacle course of your life.
+        </p>
+      </div>
+
+      <div class="pull-quote">
+        "The way you do anything is the way you do everything."
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       HOW I WORK
+  ============================================= -->
+  <section id="how">
+    <div class="section-inner">
+      <span class="label">a framework for finding your way</span>
+      <h2 class="section-heading">Sense-making. Meaning-making. Choice-making.</h2>
+
+      <div class="framework-grid">
+        <div class="framework-item">
+          <div class="fw-question">the "what?"</div>
+          <div class="fw-word">Sense-making</div>
+          <p class="fw-body">
+            It takes all of our senses to make sense — to know, even if incompletely,
+            what we're dealing with. It doesn't always make sense how we "know" things,
+            but understanding is vital.
+          </p>
+        </div>
+        <div class="framework-item">
+          <div class="fw-question">the "so what?"</div>
+          <div class="fw-word">Meaning-making</div>
+          <p class="fw-body">
+            It's incredibly subjective what each "what" means to us as individuals.
+            But if we don't know what something means to us, we're less likely to have
+            agency and options to make choices we feel good about.
+          </p>
+        </div>
+        <div class="framework-item">
+          <div class="fw-question">the "now what?"</div>
+          <div class="fw-word">Choice-making</div>
+          <p class="fw-body">
+            Making a choice happens internally but influences how you exist. It conveys
+            an energetic, determines how you spend your time and resources, informs who
+            — and what — you spend time with.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       SERVICES
+  ============================================= -->
+  <section id="services">
+    <div class="section-inner">
+      <span class="label">offerings</span>
+      <h2 class="section-heading">Integration and implementation.</h2>
+
+      <div class="services-intro">
+        <p class="body-text">
+          My offerings are about helping you develop skills that support you in crafting
+          your own experience. Let's hone the tools you already have and round out your
+          toolbox — equipping you to meet life's challenges confidently and nimbly,
+          perhaps even with a bit of anticipation.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Soundboarding</h3>
+          <p>
+            A focused session to think out loud, work through a decision, or get unstuck.
+            No agenda required — just bring what's on your mind.
+          </p>
+        </div>
+        <div class="service-card">
+          <h3>Human Touchpoint:<br>Bot + Being</h3>
+          <p>
+            Working with AI as a reflection and thinking tool, guided by a real human listener.
+            See the July workshop for a live version of this offering.
+          </p>
+        </div>
+        <div class="service-card">
+          <h3>Micro-Coaching</h3>
+          <p>
+            Ongoing support focused on small, consistent moves. Bite-sized. Momentum-building.
+            Yours to shape around what actually matters to you.
+          </p>
+        </div>
+        <div class="service-card">
+          <h3>Momentum Building<br>Intensive Coaching</h3>
+          <p>
+            A deeper engagement for people ready to commit to a sustained shift — in habits,
+            perspective, or how they meet the day.
+          </p>
+        </div>
+      </div>
+
+      <p class="services-tagline">
+        let's let your spark shine, follow your juice, and lean into your crunch.
+      </p>
+    </div>
+  </section>
+
+  <!-- =============================================
+       MICRO-PHILOSOPHY
+  ============================================= -->
+  <section id="philosophy">
+    <div class="section-inner">
+      <span class="label">how i live it</span>
+      <h2 class="section-heading">A micro-philosophy in motion.</h2>
+
+      <div class="philosophy-intro">
+        <p class="body-text">
+          I write from personal experience. I love to learn, but information on its own
+          doesn't do it for me — I synthesize it into knowledge, experiment, observe,
+          and only then does it become wisdom. Here's the shape of how I move through it.
+        </p>
+      </div>
+
+      <div class="philosophy-group">
+        <div class="phil-group-label">the cycle</div>
+        <div class="philosophy-items">
+          <div class="philosophy-item">
+            <div class="phil-word">breathe.</div>
+            <p class="phil-body">
+              insights are like the out-breath ("oh, I get it!"), inspiration is the in-breath
+              (like a gasp — "oh, I could…"). once i know what i can do…
+            </p>
+          </div>
+          <div class="philosophy-item">
+            <div class="phil-word">enact.</div>
+            <p class="phil-body">
+              do that experiment, the one that will inform me about what the insight means to me,
+              how it impacts me, what it informs for me.
+            </p>
+          </div>
+          <div class="philosophy-item">
+            <div class="phil-word">play.</div>
+            <p class="phil-body">
+              let myself relax a little; it's not all existential. allow time for the imagination
+              to be sparked and let it guide toward the next elegant action.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="philosophy-separator"></div>
+
+      <div class="philosophy-group">
+        <div class="phil-group-label">the qualities</div>
+        <div class="philosophy-items">
+          <div class="philosophy-item">
+            <div class="phil-word">spark.</div>
+            <p class="phil-body">
+              we all have one. it's what makes us unique, even as we're part of a greater whole.
+            </p>
+          </div>
+          <div class="philosophy-item">
+            <div class="phil-word">juice.</div>
+            <p class="phil-body">
+              that yummy feeling when you're in flow, or sparring with a worthy opponent,
+              or deep into dialogos. it's got energy, and we easily lean in for more.
+            </p>
+          </div>
+          <div class="philosophy-item">
+            <div class="phil-word">crunch.</div>
+            <p class="phil-body">
+              the thing you don't want to do but think would probably be good for you.
+              shadow work. challenging conversations. the obstacle course of your life —
+              the challenge part of you is leaning into anyway.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       ABOUT
+  ============================================= -->
+  <section id="about">
+    <div class="section-inner">
+      <span class="label">about</span>
+      <h2 class="section-heading">Hi, I'm Mari.</h2>
+
+      <!-- Photo placeholder — replace div below with <img> when ready -->
+      <div class="photo-placeholder">
+        <span>photo<br>coming soon</span>
+      </div>
+
+      <div class="body-text" style="max-width: 700px;">
+        <p>
+          I find immense joy in meaning and integrity. I find meaning in the moments,
+          and accumulate a sense of integrity through values-aligned action and playful
+          experimentation. Momentum is built in the accumulation of joy and experiential wisdom.
+        </p>
+        <p>
+          To me, momentum is accountability reframed. Rather than the sticks and carrots
+          of accountability, I prefer the intrinsic reward of feeling good — and the joy
+          it brings me to (try to) spread that goodness wherever I go.
+        </p>
+        <p>
+          I think of momentum-building like learning to swing. At first it's not necessarily
+          fun, and can even be frustrating. But over time we get to experience, little by little,
+          the pleasure of the back-and-forth, noticing the pauses at either end, feeling the
+          rush of movement. Or maybe you're not into swinging.
+        </p>
+        <p>
+          It's also like building a snowman. You make a small snowball and carefully roll it
+          along the ground, packing it down, shaping it, continuing to add snow until it's just
+          the right size. And maybe you don't like metaphors… in which case I'm probably not your gal.
+        </p>
+        <p>
+          I'm a mother to four amazing humans; I'm an Army veteran; I'm a sister, friend,
+          experimenter. I love a good laugh as well as a good cry (and sometimes they happen
+          together). I love to share food, think (it's a full-body activity for me), hike,
+          sing to myself, and be a multi-faceted human who can't possibly be revealed in
+          a description like this.
+        </p>
+      </div>
+
+      <div class="btn-group" style="margin-top: 2rem;">
+        <a href="#contact" class="btn-secondary">Book a free call with me →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       TESTIMONIALS
+  ============================================= -->
+  <section id="testimonials">
+    <div class="section-inner">
+      <span class="label">in their words</span>
+
+      <div class="testimonial">
+        <p class="testimonial-text">
+          "It felt like her listening was grounded and heart centered, allowing me to freely
+          share my vision. She was able to ask questions that exposed places where my plans
+          were less than true to my original vision. These insights gave me confidence and
+          momentum and cleared my view so the next pragmatic steps occurred fluidly
+          and spontaneously following the call."
+        </p>
+        <span class="testimonial-author">— Aidan T.</span>
+      </div>
+
+      <div class="testimonial">
+        <p class="testimonial-text">
+          "Her energy is playful and she is an excellent listener — a powerful blend.
+          I was impressed by the insightful questions she asked, which led me to new realizations."
+        </p>
+        <span class="testimonial-author">— Dave S.</span>
+      </div>
+
+      <div class="testimonial">
+        <p class="testimonial-text">
+          "Mari takes the varied pieces of my random thoughts, deliberations, enquiries,
+          attempts at untangling the complexities of personal and family life, and assembles
+          them into a much clearer picture of this jigsaw puzzle of life for me. Every time
+          she sharply and succinctly reduces my ramblings to essential nuggets of words,
+          which I take home as gifts."
+        </p>
+        <span class="testimonial-author">— Angie M.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       BLOG BITES
+  ============================================= -->
+  <section id="blog">
+    <div class="section-inner">
+      <span class="label">blog bites</span>
+      <h2 class="section-heading">Micro-philosophy in bite-sized bits.</h2>
+
+      <p class="body-text" style="max-width: 620px; margin-bottom: 0.5rem;">
+        I lay out my personal living micro-philosophy and invite you to consider how you
+        make sense, find meaning, and make choices. Do you know what guides you?
+        Are your moments enchanted?
+      </p>
+
+      <ul class="blog-list">
+        <li><a href="#" title="Blog Bites">Parenting as Micro-leading &amp; Raising Micro-leaders</a></li>
+        <li><a href="#" title="Blog Bites">Countercope</a></li>
+        <li><a href="#" title="Blog Bites">Amor Fati, pt. 3</a></li>
+        <li><a href="#" title="Blog Bites">______-shaped Hole in My Heart</a></li>
+      </ul>
+
+      <a href="https://maribudlong.substack.com/" class="btn-secondary" target="_blank" rel="noopener noreferrer">Read more on Substack →</a>
+
+      <p class="blog-note">For audio accompaniment to articles, visit my Substack.</p>
+    </div>
+  </section>
+
+  <!-- =============================================
+       CONTACT
+  ============================================= -->
+  <section id="contact">
+    <div class="section-inner">
+      <span class="label">get in touch</span>
+      <h2 class="section-heading">Ping me.</h2>
+
+      <p class="body-text" style="max-width: 600px;">
+        Do you have questions, want to collaborate, or just want to say hello?
+        I'd love to hear from you. If you're interested in coaching or ready to
+        explore, book a free call below.
+      </p>
+
+      <div class="contact-grid">
+
+        <div class="contact-block">
+          <div class="contact-block-label">free 15-minute exploratory call</div>
+          <h3>Let's meet.</h3>
+          <p>
+            We'll get to know each other, see if we're a good working-fit,
+            and bring forward whatever's on your mind. No pressure, no agenda
+            you didn't set.
+          </p>
+          <a href="https://calendar.app.google/C4WgMLY8QEXoVbmEA" class="btn-primary" target="_blank" rel="noopener noreferrer">Book a call →</a>
+        </div>
+
+        <div class="contact-block">
+          <div class="contact-block-label">send a message</div>
+          <h3>Or write to me.</h3>
+          <p style="font-size: 15px; color: #CAC9C6; opacity: 0.85; line-height: 1.8;">
+            Or write to me at <a href="mailto:reenchanting.moments@gmail.com" style="color: #B6816C; text-decoration: none; border-bottom: 1px solid #B6816C;">reenchanting.moments@gmail.com</a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       FOOTER
+  ============================================= -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-name">Re-Enchanting Moments</div>
+        <div class="footer-copy">© 2025 Mari Budlong</div>
+      </div>
+      <div class="footer-links">
+        <!-- Replace # with real URLs when ready -->
+        <a href="https://maribudlong.substack.com/" target="_blank" rel="noopener noreferrer">Substack</a>
+        <a href="#">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =============================================
+       JAVASCRIPT
+  ============================================= -->
+  <script>
+    // Nav: add border on scroll
+    const nav = document.getElementById('site-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+
+    // Close mobile menu when a link is clicked
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+      });
+    });
+
+    // Stripe payment links — add the others here as you create them in Stripe
+    const stripeLinks = {
+      supporter:  null,
+      regular:    null,
+      discounted: 'https://buy.stripe.com/8x25kE3xb6TR6wl0yc3wQ03',
+      pwyc:       null
+    };
+
+    const registerBtn = document.getElementById('register-btn');
+
+    function updateRegisterButton(tier) {
+      const link = stripeLinks[tier];
+      if (link) {
+        registerBtn.href = link;
+        registerBtn.textContent = 'Register Now →';
+        registerBtn.style.opacity = '1';
+        registerBtn.style.pointerEvents = 'auto';
+        registerBtn.target = '_blank';
+        registerBtn.rel = 'noopener noreferrer';
+      } else {
+        registerBtn.href = '#';
+        registerBtn.textContent = 'Ticket link coming soon';
+        registerBtn.style.opacity = '0.45';
+        registerBtn.style.pointerEvents = 'none';
+        registerBtn.removeAttribute('target');
+        registerBtn.removeAttribute('rel');
+      }
+    }
+
+    // Pricing card selection
+    function selectTier(card) {
+      document.querySelectorAll('.price-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      updateRegisterButton(card.dataset.tier);
+    }
+
+    // Set initial button state on page load (discounted is pre-selected)
+    updateRegisterButton('discounted');
+  </script>
+
+</body>
+</html>
