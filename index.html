@@ -529,23 +529,15 @@
     /* =============================================
        ABOUT
     ============================================= */
-    .photo-placeholder {
-      width: 150px;
-      height: 150px;
-      background: #484a4a;
+    .photo-mari {
+      width: 200px;
+      height: 200px;
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      object-fit: cover;
+      object-position: center top;
       margin-bottom: 2.5rem;
-      border: 1px solid #606868;
-    }
-    .photo-placeholder span {
-      font-size: 10px;
-      color: #888;
-      text-align: center;
-      line-height: 1.4;
-      padding: 0 1rem;
+      border: 2px solid #484a4a;
+      display: block;
     }
 
     /* =============================================
@@ -1068,10 +1060,7 @@
       <span class="label">about</span>
       <h2 class="section-heading">Hi, I'm Mari.</h2>
 
-      <!-- Photo placeholder — replace div below with <img> when ready -->
-      <div class="photo-placeholder">
-        <span>photo<br>coming soon</span>
-      </div>
+      <img src="mari.jpg" alt="Mari Budlong" class="photo-mari">
 
       <div class="body-text" style="max-width: 700px;">
         <p>
